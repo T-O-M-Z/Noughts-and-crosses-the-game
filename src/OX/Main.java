@@ -219,7 +219,11 @@ public class Main
         if      (
                         ColumnChecking(0, Shape)||
                         ColumnChecking(1, Shape)||
-                        ColumnChecking(2, Shape)
+                        ColumnChecking(2, Shape)||
+                        RowChecking(0, Shape)||
+                        RowChecking(1, Shape)||
+                        RowChecking(2, Shape)
+                        DiagonalChecking()
                 )
         {
             return true;
@@ -231,11 +235,35 @@ public class Main
         if
                 (
                 grid[TheRow][0].equals(Shape) &&
-                grid[TheRow][1].equals(Shape)
-
-
-
+                grid[TheRow][1].equals(Shape) &&
+                grid[TheRow][2].equals(Shape)
                 )
+        {
+            return true;
+        }
+        return false;
+    }
+    public static boolean DiagonalChecking(String Shape)
+    {
+        if
+                (
+                grid[0][0].equals(Shape)&&
+                grid[1][1].equals(Shape)&&
+                grid[2][2].equals(Shape)
+                )
+        {
+            return true;
+        }
+        if
+                (
+                grid[0][2].equals(Shape)&&
+                grid[1][1].equals(Shape)&&
+                grid[2][0].equals(Shape)
+                )
+        {
+            return true;
+        }
+        return false;
     }
 
 
