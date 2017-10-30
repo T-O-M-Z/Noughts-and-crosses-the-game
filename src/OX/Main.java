@@ -175,7 +175,6 @@ public class Main
     }
     public static void AIMove()
     {
-        System.out.println("The AI needs to make a move based on players choice");
         Random newRand = new Random();
         int choice = newRand.nextInt(6);
         if(choice == 7)
@@ -188,6 +187,15 @@ public class Main
             {
                 if(grid[0][1] == " ~ ")
                 {
+                    grid[0][1] = " O ";
+                }
+                if(grid[0][2] == " ~ ")
+                {
+                    grid[0][2] = " O ";
+                }
+                if(grid[1][0] == " ~ ")
+                {
+                    grid[1][0] = " O ";
                 }
             }
 
@@ -195,7 +203,6 @@ public class Main
     }
     public static boolean result()
     {
-        System.out.println("If the game is over then TRUE, if it isn't then FALSE");
         return false;
     }
     public static void endgame(String Shape)
@@ -222,8 +229,8 @@ public class Main
                         ColumnChecking(2, Shape)||
                         RowChecking(0, Shape)||
                         RowChecking(1, Shape)||
-                        RowChecking(2, Shape)
-                        DiagonalChecking()
+                        RowChecking(2, Shape)||
+                        DiagonalChecking(Shape)
                 )
         {
             return true;
